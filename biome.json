@@ -1,0 +1,27 @@
+{
+  "json": {
+    "parser": {
+      "allowComments": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noTsIgnore": "off",
+        "noAsyncPromiseExecutor": "off"
+      },
+      "a11y": {
+        "useValidAriaRole": "off"
+      },
+      "style": {
+        "noNonNullAssertion": "off"
+      }
+    }
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 160
+  }
+}
