@@ -1,7 +1,7 @@
 import VISIBILITY_ICON from "@material-symbols/svg-700/outlined/visibility.svg";
 import VISIBILITY_OFF_ICON from "@material-symbols/svg-700/outlined/visibility_off.svg";
 import clsx from "clsx";
-import { type Accessor, type Component, createEffect, createSignal } from "solid-js";
+import { type Component, createEffect, createSignal } from "solid-js";
 import type { DOMElement } from "solid-js/jsx-runtime";
 import UKIcon from "../icon/UKIcon";
 import styles from "./UKTextField.module.scss";
@@ -9,7 +9,6 @@ import styles from "./UKTextField.module.scss";
 // TODO: add reveal password 'eye' icon
 const UKTextField: Component<
   {
-    color: "filled" | "outlined";
     leadingIcon?: { icon: string; onClick?: () => void };
     labelEmpty?: string;
     label: string;
@@ -29,13 +28,20 @@ const UKTextField: Component<
     containerClass?: string;
     autocomplete?: string;
   } & (
+    {
+      color: "outlined";
+      labelBackgroundStyle?: "filled" | "background"
+    } | {
+      color: "filled";
+    }
+  ) & (
     | {
-        shouldMask: true;
-        as?: "input";
-      }
+      shouldMask: true;
+      as?: "input";
+    }
     | {
-        trailingIcon?: { icon: string; onClick?: () => void };
-      }
+      trailingIcon?: { icon: string; onClick?: () => void };
+    }
   )
 > = (props) => {
   const [characterLength, setCharacterLength] = createSignal<number>(0);
@@ -120,7 +126,7 @@ const UKTextField: Component<
         )}
         <div class={styles.inputContainer}>
           {props.as === "textarea" ? <textarea ref={textAreaRef} {...elementProperties} /> : <input ref={inputRef} {...elementProperties} />}
-          <span class={styles.labelText}>{props.labelEmpty !== undefined ? (characterLength() > 0 ? props.label : props.labelEmpty) : props.label}</span>
+          <span class={clsx(styles.labelText, "labelBackgroundStyle" in props && props.labelBackgroundStyle === "background" && styles.labelTextBackgroundColor)}>{props.labelEmpty !== undefined ? (characterLength() > 0 ? props.label : props.labelEmpty) : props.label}</span>
         </div>
         {"shouldMask" in props && props.shouldMask === true ? (
           <UKIcon
