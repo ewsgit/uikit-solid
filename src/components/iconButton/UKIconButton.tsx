@@ -11,6 +11,7 @@ import styles from "./UKIconButton.module.scss";
 
 const UKIconButton: Component<{
   icon: string;
+  iconType?: "icon" | "image";
   alt: string;
   onClick: (event: MouseEvent & { currentTarget: HTMLButtonElement; target: Element }) => void;
   width?: IconButtonWidth;
@@ -46,7 +47,9 @@ const UKIconButton: Component<{
       class={clsx(props.class, styles.root)}
       aria-label={props.alt}
     >
+      {props.iconType === "image" ? <img src={props.icon}/> :
       <UKIcon class={props.iconClass}>{props.icon}</UKIcon>
+}
     </button>
   );
 };
