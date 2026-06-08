@@ -979,7 +979,7 @@ export default function App() {
       </UKExtendedFloatingActionButton>
 
       <span>
-        UIKit Material Expressive for SolidJS | "@ewsgit/uikit-solid" | Created by <a href={"https://github.com/ewsgit"}>Ewsgit</a>
+        UIKit Material Expressive for SolidJS | "@ewsgit/uikit-solid" | Created by <a href={"https://ewsgit.uk"}>Ewsgit</a>
       </span>
     </Root>
   );
