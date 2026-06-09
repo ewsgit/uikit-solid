@@ -4,7 +4,6 @@ import PROGRESS_ACTIVITY_ICON from "@material-symbols/svg-700/outlined/progress_
 import clsx from "clsx";
 import { createSignal, type ParentProps } from "solid-js";
 import UKIcon from "../icon/UKIcon.tsx";
-import type { ButtonColor } from "./lib/color.ts";
 import type { ButtonShape } from "./lib/shape.ts";
 import type { ButtonSize } from "./lib/size.ts";
 import styles from "./UKButton.module.scss";
@@ -16,51 +15,54 @@ export enum AffirmativeButtonState {
   Unset,
 }
 
-type ButtonProps<Affirmative extends true | undefined = undefined> = {
+interface BaseButtonProps {
   class?: string;
   disabled?: boolean;
   size?: ButtonSize;
-  color?: ButtonColor;
   shape?: ButtonShape;
   type?: "normal" | "toggle";
-  onClick: Affirmative extends true
-    ? (
-        event: MouseEvent & {
-          currentTarget: HTMLButtonElement;
-          target: Element;
-        },
-      ) => Promise<{ state: AffirmativeButtonState; cb?: () => void | Promise<void> }>
-    : (
-        event: MouseEvent & {
-          currentTarget: HTMLButtonElement;
-          target: Element;
-        },
-      ) => void | Promise<void>;
-  affirmative?: Affirmative;
   leadingIcon?: string;
   trailingIcon?: string;
-} & (Affirmative extends true
-  ? {
-      onSuccess?: () => void;
-      onError?: () => void;
-    }
-  : unknown);
+}
+
+interface NonAffirmativeButtonProps extends BaseButtonProps {
+  color?: "elevated" | "filled" | "tonal" | "outlined" | "standard";
+  onClick: (
+    event: MouseEvent & {
+      currentTarget: HTMLButtonElement;
+      target: Element;
+    },
+  ) => void | Promise<void>;
+}
+
+interface AffirmativeButtonProps extends BaseButtonProps {
+  affirmative: true;
+  color?: "elevated" | "filled" | "tonal" | "outlined";
+  onClick: (
+    event: MouseEvent & {
+      currentTarget: HTMLButtonElement;
+      target: Element;
+    },
+  ) => Promise<{ state: AffirmativeButtonState; cb?: () => void | Promise<void> }>;
+  onSuccess?: () => void;
+  onError?: () => void;
+}
 
 const AFFIRMATIVE_BUTTON_HOLD_TIME = 1000;
 
-const UKButton = <Affirmative extends true | undefined = undefined>(props: ParentProps<ButtonProps<Affirmative>>) => {
+const UKButton = (props: ParentProps<NonAffirmativeButtonProps | AffirmativeButtonProps>) => {
   const [isSelected, setIsSelected] = createSignal(false);
   const [affirmativeState, setAffirmativeState] = createSignal<AffirmativeButtonState>(AffirmativeButtonState.Unset);
 
   if (props.color === "standard" && props.type === "toggle") {
-    alert("You cannot have a standard color button be toggleable");
+    alert("You cannot have a standard color button be toggle-able");
   }
 
   return (
     <button
       disabled={props.disabled || false}
       data-selected={isSelected()}
-      data-toggleable={props.type === "toggle" || false}
+      data-toggle-able={props.type === "toggle" || false}
       data-size={props.size || "s"}
       data-shape={isSelected() ? ((props.shape || "round") === "round" ? "square" : "round") : props.shape || "round"}
       data-color={props.color || "filled"}
@@ -71,7 +73,7 @@ const UKButton = <Affirmative extends true | undefined = undefined>(props: Paren
           props.onClick(e);
           return;
         }
-        if (props.affirmative) {
+        if ("affirmative" in props && props.affirmative) {
           if (affirmativeState() !== AffirmativeButtonState.Unset) {
             return;
           }
@@ -100,7 +102,7 @@ const UKButton = <Affirmative extends true | undefined = undefined>(props: Paren
       class={clsx(styles.root, props.class, affirmativeState() === AffirmativeButtonState.InProgress && styles.inProgress)}
       type="button"
     >
-      {props.affirmative ? (
+      {"affirmative" in props && props.affirmative ? (
         <UKIcon
           class={clsx(
             styles.iconClass,

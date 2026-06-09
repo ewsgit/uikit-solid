@@ -131,7 +131,7 @@
     }
 
     &[data-shape="round"] {
-        border-radius: calc(var(--button-height) / 2);
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-medium);
@@ -173,7 +173,7 @@
     }
 
     &[data-shape="round"] {
-        border-radius: calc(var(--button-height) / 2);
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-medium);
@@ -185,7 +185,6 @@
 
       &[data-selected="true"] {
         border-radius: calc(var(--button-height) / 2);
-
       }
     }
 
@@ -216,8 +215,7 @@
     }
 
     &[data-shape="round"] {
-        border-radius: calc(var(--button-height) / 2);
-
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-large);
@@ -229,7 +227,6 @@
 
       &[data-selected="true"] {
         border-radius: calc(var(--button-height) / 2);
-
       }
     }
 
@@ -260,7 +257,7 @@
     }
 
     &[data-shape="round"] {
-        border-radius: calc(var(--button-height) / 2);
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-extra-large);
@@ -272,7 +269,6 @@
 
       &[data-selected="true"] {
         border-radius: calc(var(--button-height) / 2);
-
       }
     }
 
@@ -282,7 +278,7 @@
   }
 
   &[data-size="xl"] {
-    --button-height: 136px;
+    --button-height: 132px;
     border-width: 3px;
     --icon-size: 40px;
     --outline-width: 3px;
@@ -303,8 +299,7 @@
     }
 
     &[data-shape="round"] {
-        border-radius: calc(var(--button-height) / 2);
-
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-extra-large);
@@ -316,7 +311,6 @@
 
       &[data-selected="true"] {
         border-radius: calc(var(--button-height) / 2);
-
       }
     }
 
