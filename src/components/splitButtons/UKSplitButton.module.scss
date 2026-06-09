@@ -1,14 +1,91 @@
 .root {
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    width: max-content;
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  width: max-content;
 }
 
 .textButton {
-    border-top-right-radius: 0;
+  border-top-right-radius: 0;
+
+  &[data-size="xs"] {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+  }
+
+  &[data-size="s"] {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+  }
+
+  &[data-size="m"] {
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+  }
+
+  &[data-size="l"] {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+
+  &[data-size="xl"] {
+    border-top-right-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
+  }
 }
 
 .iconButton {
-    background: red;
+  &[data-size="xs"] {
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+
+    &:active:not(:disabled) {
+      border-top-right-radius: calc(var(--button-height) / 2) !important;
+      border-bottom-right-radius: calc(var(--button-height) / 2) !important;
+    }
+  }
+
+  &[data-size="s"] {
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+
+    &:active:not(:disabled) {
+      border-top-right-radius: calc(var(--button-height) / 2) !important;
+      border-bottom-right-radius: calc(var(--button-height) / 2) !important;
+    }
+  }
+
+  &[data-size="m"] {
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+
+    &:active:not(:disabled) {
+      border-top-right-radius: calc(var(--button-height) / 2) !important;
+      border-bottom-right-radius: calc(var(--button-height) / 2) !important;
+    }
+  }
+
+  &[data-size="l"] {
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-left-radius: 0.5rem !important;
+
+    &:active:not(:disabled) {
+      border-top-right-radius: calc(var(--button-height) / 2) !important;
+      border-bottom-right-radius: calc(var(--button-height) / 2) !important;
+    }
+  }
+
+  &[data-size="xl"] {
+    border-top-left-radius: 0.75rem !important;
+    border-bottom-left-radius: 0.75rem !important;
+
+    &:active:not(:disabled) {
+      border-top-right-radius: calc(var(--button-height) / 2) !important;
+      border-bottom-right-radius: calc(var(--button-height) / 2) !important;
+    }
+  }
+
+  &.iconButtonDropdownSelected {
+    border-radius: var(--button-height) !important;
+  }
 }
