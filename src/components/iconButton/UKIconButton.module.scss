@@ -1,7 +1,7 @@
 .root {
   background-color: rgb(var(--uk-sys-color-primary));
   color: rgb(var(--uk-sys-color-on-primary));
-  height: 40px;
+  height: var(--button-height, 40px);
   border: none;
   --icon-size: 24px;
   overflow: hidden;
@@ -18,7 +18,7 @@
   padding-right: var(--padding-right-override, var(--padding-right, 0px));
 
   transition:
-    all var(--uk-sys-motion-duration-50) var(--transition-all, linear),
+    all var(--uk-sys-motion-duration-50) var(--uk-sys-motion-easing-standard-decelerate),
     outline-color var(--uk-sys-motion-duration-100) var(--uk-sys-motion-easing-standard-decelerate),
     outline-width 0ms linear,
     background-color var(--uk-sys-motion-duration-100) var(--uk-sys-motion-easing-standard-normal),
@@ -29,7 +29,7 @@
     margin-right var(--uk-sys-motion-duration-50) var(--uk-sys-motion-easing-linear),
     border-radius var(--border-radius-duration, var(--uk-sys-motion-duration-50)) var(--uk-sys-motion-easing-linear);
 
-  >img {
+  > img {
     display: block;
     width: var(--icon-size);
     height: var(--icon-size);
@@ -68,7 +68,7 @@
   }
 
   &[data-size="xxs"] {
-    height: 24px;
+    --button-height: 24px;
     border-width: 1px;
     --icon-size: 16px;
     --outline-width: 1px;
@@ -89,7 +89,7 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 24px;
+      border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-medium);
@@ -100,7 +100,7 @@
       border-radius: var(--uk-sys-shape-corner-medium);
 
       &[data-selected="true"] {
-        border-radius: 24px;
+        border-radius: calc(var(--button-height) / 2);
       }
     }
 
@@ -110,7 +110,7 @@
   }
 
   &[data-size="xs"] {
-    height: 32px;
+    --button-height: 32px;
     border-width: 1px;
     --icon-size: 20px;
     --outline-width: 1px;
@@ -131,7 +131,7 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 24px;
+        border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-medium);
@@ -142,7 +142,7 @@
       border-radius: var(--uk-sys-shape-corner-medium);
 
       &[data-selected="true"] {
-        border-radius: 24px;
+        border-radius: calc(var(--button-height) / 2);
       }
     }
 
@@ -152,7 +152,7 @@
   }
 
   &[data-size="s"] {
-    height: 40px;
+    --button-height: 40px;
     border-width: 1px;
     --icon-size: 24px;
     --outline-width: 1px;
@@ -173,7 +173,7 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 40px;
+        border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-medium);
@@ -184,7 +184,8 @@
       border-radius: var(--uk-sys-shape-corner-medium);
 
       &[data-selected="true"] {
-        border-radius: 40px;
+        border-radius: calc(var(--button-height) / 2);
+
       }
     }
 
@@ -194,7 +195,7 @@
   }
 
   &[data-size="m"] {
-    height: 56px;
+    --button-height: 56px;
     border-width: 1px;
     --icon-size: 24px;
     --outline-width: 1px;
@@ -215,7 +216,8 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 56px;
+        border-radius: calc(var(--button-height) / 2);
+
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-large);
@@ -226,7 +228,8 @@
       border-radius: var(--uk-sys-shape-corner-large);
 
       &[data-selected="true"] {
-        border-radius: 56px;
+        border-radius: calc(var(--button-height) / 2);
+
       }
     }
 
@@ -236,7 +239,7 @@
   }
 
   &[data-size="l"] {
-    height: 96px;
+    --button-height: 96px;
     border-width: 2px;
     --icon-size: 32px;
     --outline-width: 2px;
@@ -257,7 +260,7 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 96px;
+        border-radius: calc(var(--button-height) / 2);
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-extra-large);
@@ -268,7 +271,8 @@
       border-radius: var(--uk-sys-shape-corner-extra-large);
 
       &[data-selected="true"] {
-        border-radius: 96px;
+        border-radius: calc(var(--button-height) / 2);
+
       }
     }
 
@@ -278,7 +282,7 @@
   }
 
   &[data-size="xl"] {
-    height: 136px;
+    --button-height: 136px;
     border-width: 3px;
     --icon-size: 40px;
     --outline-width: 3px;
@@ -299,7 +303,8 @@
     }
 
     &[data-shape="round"] {
-      border-radius: 136px;
+        border-radius: calc(var(--button-height) / 2);
+
 
       &[data-selected="true"] {
         border-radius: var(--uk-sys-shape-corner-extra-large);
@@ -310,7 +315,8 @@
       border-radius: var(--uk-sys-shape-corner-extra-large);
 
       &[data-selected="true"] {
-        border-radius: 136px;
+        border-radius: calc(var(--button-height) / 2);
+
       }
     }
 
@@ -392,8 +398,10 @@
         color: rgb(var(--uk-sys-color-on-surface-variant));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-surface-variant),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-surface-variant),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
 
@@ -401,8 +409,10 @@
         color: rgb(var(--uk-sys-color-on-primary));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-surface-variant),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-surface-variant),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
     }
@@ -447,16 +457,20 @@
       color: rgb(var(--uk-sys-color-on-secondary-container));
 
       &::before {
-        background-color: rgb(var(--uk-sys-color-on-secondary-container),
-            var(--uk-sys-state-focus-state-layer-opacity));
+        background-color: rgb(
+          var(--uk-sys-color-on-secondary-container),
+          var(--uk-sys-state-focus-state-layer-opacity)
+        );
       }
 
       &[data-type="toggle"] {
         color: rgb(var(--uk-sys-color-on-secondary-container));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-secondary-container),
-              var(--uk-sys-state-focus-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-secondary-container),
+            var(--uk-sys-state-focus-state-layer-opacity)
+          );
         }
       }
 
@@ -473,16 +487,20 @@
       color: rgb(var(--uk-sys-color-on-secondary-container));
 
       &::before {
-        background-color: rgb(var(--uk-sys-color-on-secondary-container),
-            var(--uk-sys-state-hover-state-layer-opacity));
+        background-color: rgb(
+          var(--uk-sys-color-on-secondary-container),
+          var(--uk-sys-state-hover-state-layer-opacity)
+        );
       }
 
       &[data-type="toggle"] {
         color: rgb(var(--uk-sys-color-on-secondary-container));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-secondary-container),
-              var(--uk-sys-state-over-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-secondary-container),
+            var(--uk-sys-state-over-state-layer-opacity)
+          );
         }
       }
 
@@ -499,16 +517,20 @@
       color: rgb(var(--uk-sys-color-on-secondary-container));
 
       &::before {
-        background-color: rgb(var(--uk-sys-color-on-secondary-container),
-            var(--uk-sys-state-pressed-state-layer-opacity));
+        background-color: rgb(
+          var(--uk-sys-color-on-secondary-container),
+          var(--uk-sys-state-pressed-state-layer-opacity)
+        );
       }
 
       &[data-type="toggle"] {
         color: rgb(var(--uk-sys-color-on-surface-variant));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-secondary-container),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-secondary-container),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
 
@@ -569,8 +591,10 @@
         color: rgb(var(--uk-sys-color-on-surface-variant));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-secondary-container),
-              var(--uk-sys-state-focus-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-secondary-container),
+            var(--uk-sys-state-focus-state-layer-opacity)
+          );
         }
       }
 
@@ -618,8 +642,10 @@
         color: rgb(var(--uk-sys-color-on-surface-variant));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-surface-variant),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-surface-variant),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
 
@@ -627,8 +653,10 @@
         color: rgb(var(--uk-sys-color-inverse-on-surface));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-inverse-on-surface),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-inverse-on-surface),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
     }
@@ -726,8 +754,10 @@
         color: rgb(var(--uk-sys-color-on-surface-variant));
 
         &::before {
-          background-color: rgb(var(--uk-sys-color-on-surface-variant),
-              var(--uk-sys-state-pressed-state-layer-opacity));
+          background-color: rgb(
+            var(--uk-sys-color-on-surface-variant),
+            var(--uk-sys-state-pressed-state-layer-opacity)
+          );
         }
       }
 
