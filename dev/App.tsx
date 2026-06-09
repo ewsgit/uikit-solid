@@ -27,7 +27,7 @@ import { uk } from "../src/core/design/tokens.ts";
 
 const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
   return (
-    <UKCard>
+    <UKCard class={css`display: flex; flex-direction: column; gap: 0.5rem;`}>
       <UKText size="l" role="title">
         Button Variant '{size}'
       </UKText>
@@ -154,7 +154,7 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
 
 export default function App() {
   return (
-    <Root>
+    <Root class={css`display: flex; flex-direction: column; gap: 1rem; padding: 1rem;`}>
       <ButtonVariantsForSize size={"xs"} />
       <UKDivider direction={DividerDirection.horizontal} />
       <ButtonVariantsForSize size={"s"} />
@@ -165,44 +165,38 @@ export default function App() {
       <UKDivider direction={DividerDirection.horizontal} />
       <ButtonVariantsForSize size={"xl"} />
 
-      <UKCard>
+      <UKCard
+        class={css`
+          gap: 0.5rem;
+          display: flex;
+          flex-direction: column;
+      `}
+      >
         <UKBadge count={12}>
-          <h3
+          <div
             class={css`
-                            background: rgb(${uk.sys.color["secondary-container"]});
-                            width: 16rem;
-                            margin: 0;
-                            padding: 0.25rem;
-                        `}
-          >
-            Random Placeholder
-          </h3>
+                    background: rgb(${uk.sys.color["secondary-container"]});
+                    padding: 1rem;
+                 `}
+          ></div>
         </UKBadge>
 
         <UKBadge count={1000}>
-          <h3
+          <div
             class={css`
-                            background: rgb(${uk.sys.color["secondary-container"]});
-                            width: 16rem;
-                            margin: 0;
-                            padding: 0.25rem;
-                        `}
-          >
-            Random Placeholder
-          </h3>
+              background: rgb(${uk.sys.color["secondary-container"]});
+              padding: 1rem;
+           `}
+          ></div>
         </UKBadge>
 
         <UKBadge count={1}>
-          <h3
+          <div
             class={css`
-                            background: rgb(${uk.sys.color["secondary-container"]});
-                            width: 16rem;
-                            margin: 0;
-                            padding: 0.25rem;
-                        `}
-          >
-            Random Placeholder
-          </h3>
+                background: rgb(${uk.sys.color["secondary-container"]});
+                padding: 1rem;
+           `}
+          ></div>
         </UKBadge>
       </UKCard>
 
@@ -929,10 +923,34 @@ export default function App() {
         <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
-      <UKText size="m" role="title">Split Button</UKText>
+      <UKText size="m" role="title">
+        Split Button
+      </UKText>
 
       <UKSplitButton
+        size="xs"
         items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
           {
             type: "button",
             label: "Hello World!",
@@ -943,33 +961,389 @@ export default function App() {
         ]}
       />
 
-      <UKText size="m" role="title">Chips</UKText>
+      <UKSplitButton
+        size="s"
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
 
-      <UKText size="s" role="title">Assist Chip</UKText>
+      <UKSplitButton
+        size="m"
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="l"
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="xl"
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="xs"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="s"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="m"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="l"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
+        size="xl"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKText size="m" role="title">
+        Chips
+      </UKText>
+
+      <UKText size="s" role="title">
+        Assist Chip
+      </UKText>
       <UKChip type="assist">{"Hello world"}</UKChip>
-      <UKText size="s" role="title">Filter Deselectable Chip</UKText>
-      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}}>
+      <UKText size="s" role="title">
+        Filter Deselectable Chip
+      </UKText>
+      <UKChip type="filter_deselectable" isSelected={false} select={() => {}}>
+        {"Hello world"}
+      </UKChip>
+      <UKChip type="filter_deselectable" isSelected={true} select={() => {}}>
         {"Hello world"}
       </UKChip>
       <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "icon", value: PERSON_ICON }}>
         {"Hello world"}
       </UKChip>
-      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "image", value: "https://google.com/favicon.ico" }}>
+      <UKChip
+        type="filter_deselectable"
+        deselect={() => {}}
+        isSelected={true}
+        select={() => {}}
+        leading={{ type: "image", value: "https://google.com/favicon.ico" }}
+      >
         {"Hello world"}
       </UKChip>
-      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "avatar", value: "https://google.com/favicon.ico" }}>
+      <UKChip
+        type="filter_deselectable"
+        deselect={() => {}}
+        isSelected={true}
+        select={() => {}}
+        leading={{ type: "avatar", value: "https://google.com/favicon.ico" }}
+      >
         {"Hello world"}
       </UKChip>
       <UKChip type="filter_deselectable" deselect={() => {}} isSelected={false} select={() => {}}>
         {"Hello world"}
       </UKChip>
-      <UKText size="s" role="title">Filter Dropdown Chip</UKText>
-      <UKChip type="filter_dropdown" defaultSelectionId="1" onSelectItem={() => {}} items={[ { id: "1", label: "First", icon: PERSON_ICON }, { id: "2", label: "Seccond" }, { id: "3", label: "Third" } ]}/>
-      <UKText size="s" role="title">Filter Removable Chip</UKText>
-      <UKChip onRemove={() => {}} type="filter_removable">{"Hello world"}</UKChip>
-      <UKText size="s" role="title">Input Chip</UKText>
+      <UKText size="s" role="title">
+        Filter Dropdown Chip
+      </UKText>
+      <UKChip
+        type="filter_dropdown"
+        defaultSelectionId="1"
+        onSelectItem={() => {}}
+        items={[
+          { id: "1", label: "First", icon: PERSON_ICON },
+          { id: "2", label: "Second" },
+          { id: "3", label: "Third" },
+        ]}
+      />
+      <UKText size="s" role="title">
+        Filter Removable Chip
+      </UKText>
+      <UKChip onRemove={() => {}} type="filter_removable">
+        {"Hello world"}
+      </UKChip>
+      <UKText size="s" role="title">
+        Input Chip
+      </UKText>
       <UKChip type="input">{"Hello world"}</UKChip>
-      <UKText size="s" role="title">Suggestion Chip</UKText>
+      <UKText size="s" role="title">
+        Suggestion Chip
+      </UKText>
       <UKChip type="suggestion">{"Hello world"}</UKChip>
 
       <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="primary" size="small">
