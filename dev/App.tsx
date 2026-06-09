@@ -1,3 +1,11 @@
+import ARROW_LEFT_ICON from "@material-symbols/svg-700/outlined/arrow_left.svg";
+import ARROW_RIGHT_ICON from "@material-symbols/svg-700/outlined/arrow_right.svg";
+import BORG_ICON from "@material-symbols/svg-700/outlined/borg.svg";
+import FACE_ICON from "@material-symbols/svg-700/outlined/face.svg";
+import MAIL_ICON from "@material-symbols/svg-700/outlined/mail.svg";
+import PERSON_ICON from "@material-symbols/svg-700/outlined/person.svg";
+import ROTATE_AUTO_ICON from "@material-symbols/svg-700/outlined/rotate_auto.svg";
+import VERIFIED_ICON from "@material-symbols/svg-700/outlined/verified.svg";
 import type { Component } from "solid-js";
 import { css } from "solid-styled-components";
 import UKBadge from "../src/components/badge/UKBadge.tsx";
@@ -14,14 +22,19 @@ import UKList from "../src/components/list/UKList.tsx";
 import UKListItem from "../src/components/list/UKListItem.tsx";
 import Root from "../src/components/Root.tsx";
 import UKSplitButton from "../src/components/splitButtons/UKSplitButton.tsx";
+import UKText from "../src/components/text/UKText.tsx";
 import { uk } from "../src/core/design/tokens.ts";
 
 const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
   return (
     <UKCard>
-      <h1>Button Variant '{size}'</h1>
+      <UKText size="l" role="title">
+        Button Variant '{size}'
+      </UKText>
 
-      <h2>Filled Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)</h2>
+      <UKText size="m" role="title">
+        Filled Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)
+      </UKText>
       <div
         class={css`
                     display: flex;
@@ -29,27 +42,29 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
                     flex-wrap: wrap;
                 `}
       >
-        <UKButton color="filled" size={size} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={size} onClick={() => { }}>
+        <UKButton color="filled" size={size} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={size} disabled onClick={() => { }}>
+        <UKButton color="filled" size={size} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={size} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={size} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={size} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={size} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={size} leadingIcon={"borg"} trailingIcon={"rotate_auto"} onClick={() => { }}>
+        <UKButton color="filled" size={size} leadingIcon={BORG_ICON} trailingIcon={ROTATE_AUTO_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </div>
 
-      <h2>Tonal Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)</h2>
+      <UKText size="m" role="title">
+        Tonal Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)
+      </UKText>
       <div
         class={css`
                     display: flex;
@@ -57,27 +72,29 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
                     flex-wrap: wrap;
                 `}
       >
-        <UKButton color="tonal" size={size} type={"toggle"} onClick={() => { }}>
+        <UKButton color="tonal" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="tonal" size={size} onClick={() => { }}>
+        <UKButton color="tonal" size={size} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="tonal" size={size} disabled onClick={() => { }}>
+        <UKButton color="tonal" size={size} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="tonal" size={size} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="tonal" size={size} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="tonal" size={size} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="tonal" size={size} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="tonal" size={size} leadingIcon={"borg"} trailingIcon={"rotate_auto"} onClick={() => { }}>
+        <UKButton color="tonal" size={size} leadingIcon={BORG_ICON} trailingIcon={ROTATE_AUTO_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </div>
 
-      <h2>Outlined Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)</h2>
+      <UKText size="m" role="title">
+        Outlined Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)
+      </UKText>
       <div
         class={css`
                     display: flex;
@@ -85,27 +102,29 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
                     flex-wrap: wrap;
                 `}
       >
-        <UKButton color="outlined" size={size} type={"toggle"} onClick={() => { }}>
+        <UKButton color="outlined" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="outlined" size={size} onClick={() => { }}>
+        <UKButton color="outlined" size={size} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="outlined" size={size} disabled onClick={() => { }}>
+        <UKButton color="outlined" size={size} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="outlined" size={size} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="outlined" size={size} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="outlined" size={size} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="outlined" size={size} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="outlined" size={size} leadingIcon={"borg"} trailingIcon={"rotate_auto"} onClick={() => { }}>
+        <UKButton color="outlined" size={size} leadingIcon={BORG_ICON} trailingIcon={ROTATE_AUTO_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </div>
 
-      <h2>Text Button (default, disabled, icon leading, icon trailing, icon trailing & leading)</h2>
+      <UKText size="m" role="title">
+        Text Button (toggle, default, disabled, icon leading, icon trailing, icon trailing & leading)
+      </UKText>
       <div
         class={css`
                     display: flex;
@@ -113,19 +132,19 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
                     flex-wrap: wrap;
                 `}
       >
-        <UKButton color="standard" size={size} onClick={() => { }}>
+        <UKButton color="standard" size={size} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="standard" size={size} disabled onClick={() => { }}>
+        <UKButton color="standard" size={size} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="standard" size={size} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="standard" size={size} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="standard" size={size} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="standard" size={size} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="standard" size={size} leadingIcon={"borg"} trailingIcon={"rotate_auto"} onClick={() => { }}>
+        <UKButton color="standard" size={size} leadingIcon={BORG_ICON} trailingIcon={ROTATE_AUTO_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </div>
@@ -188,26 +207,26 @@ export default function App() {
       </UKCard>
 
       <UKList>
-        <UKListItem labelText={"Heading"} supportingText={"Supporting text"} onClick={() => { }} />
+        <UKListItem labelText={"Heading"} supportingText={"Supporting text"} onClick={() => {}} />
         <UKListItem
           labelText={"Heading"}
           supportingText={"Supporting text"}
           leading={{
             type: "icon",
-            value: "arrow_right",
+            value: ARROW_RIGHT_ICON,
           }}
-          onClick={() => { }}
+          onClick={() => {}}
         />
-        <UKListItem labelText={"Heading"} supportingText={"Supporting text"} trailing={{ type: "text", value: "100+" }} onClick={() => { }} canSelect={true} />
+        <UKListItem labelText={"Heading"} supportingText={"Supporting text"} trailing={{ type: "text", value: "100+" }} onClick={() => {}} canSelect={true} />
         <UKListItem
           labelText={"Heading"}
           supportingText={"Supporting text"}
           leading={{
             type: "icon",
-            value: "arrow_right",
+            value: ARROW_RIGHT_ICON,
           }}
-          onClick={() => { }}
-          trailing={{ type: "icon", value: "arrow_left" }}
+          onClick={() => {}}
+          trailing={{ type: "icon", value: ARROW_LEFT_ICON }}
           selected={true}
           canSelect={true}
         />
@@ -218,8 +237,8 @@ export default function App() {
             type: "avatar",
             value: "https://google.com/favicon.ico",
           }}
-          onClick={() => { }}
-          trailing={{ type: "icon", value: "arrow_left" }}
+          onClick={() => {}}
+          trailing={{ type: "icon", value: ARROW_LEFT_ICON }}
         />
         <UKListItem
           divider={true}
@@ -229,7 +248,7 @@ export default function App() {
             type: "avatar",
             value: "https://google.com/favicon.ico",
           }}
-          onClick={() => { }}
+          onClick={() => {}}
         />
         <UKListItem
           divider={true}
@@ -239,7 +258,7 @@ export default function App() {
             type: "image",
             value: "https://google.com/favicon.ico",
           }}
-          onClick={() => { }}
+          onClick={() => {}}
           selected={true}
           canSelect={true}
         />
@@ -251,7 +270,7 @@ export default function App() {
             type: "large-image",
             value: "https://google.com/favicon.ico",
           }}
-          onClick={() => { }}
+          onClick={() => {}}
           selected={true}
           canSelect={true}
         />
@@ -262,186 +281,186 @@ export default function App() {
             type: "video",
             value: "https://google.com/favicon.ico",
           }}
-          onClick={() => { }}
+          onClick={() => {}}
         />
       </UKList>
 
       <UKButtonGroup size={"xs"}>
-        <UKButton color="filled" size={"xs"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup size={"s"}>
-        <UKButton color="filled" size={"s"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"s"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup size={"m"}>
-        <UKButton color="filled" size={"m"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"m"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup size={"l"}>
-        <UKButton color="filled" size={"l"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"l"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup size={"xl"}>
-        <UKButton color="filled" size={"xl"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup connected size={"xs"}>
-        <UKButton color="filled" size={"xs"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xs"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"xs"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup connected size={"s"}>
-        <UKButton color="filled" size={"s"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"s"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"s"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"s"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup connected size={"m"}>
-        <UKButton color="filled" size={"m"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"m"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"m"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"m"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup connected size={"l"}>
-        <UKButton color="filled" size={"l"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"l"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"l"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"l"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
 
       <UKButtonGroup connected size={"xl"}>
-        <UKButton color="filled" size={"xl"} type={"toggle"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} type={"toggle"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} disabled onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} disabled onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} leadingIcon={"verified"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} leadingIcon={VERIFIED_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
-        <UKButton color="filled" size={"xl"} trailingIcon={"face"} onClick={() => { }}>
+        <UKButton color="filled" size={"xl"} trailingIcon={FACE_ICON} onClick={() => {}}>
           Confirm
         </UKButton>
       </UKButtonGroup>
@@ -457,20 +476,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -480,20 +499,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -503,20 +522,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -526,20 +545,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -549,20 +568,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"narrow"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"default"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"filled"} width={"wide"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -572,20 +591,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -595,20 +614,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -618,20 +637,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -641,20 +660,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -664,20 +683,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"narrow"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"default"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"tonal"} width={"wide"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -687,20 +706,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -710,20 +729,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -733,20 +752,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -756,20 +775,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -779,20 +798,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"narrow"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"default"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"outlined"} width={"wide"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -802,20 +821,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xs"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -825,20 +844,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"s"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -848,20 +867,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"m"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -871,20 +890,20 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"l"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
       <div
@@ -894,87 +913,122 @@ export default function App() {
                     gap: 0.5rem;
                 `}
       >
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"narrow"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"default"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
 
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon="person" type={"toggle"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon="person" onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon="person" shape={"square"} onClick={() => 0} />
-        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon="person" disabled={true} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon={PERSON_ICON} type={"toggle"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon={PERSON_ICON} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon={PERSON_ICON} shape={"square"} onClick={() => 0} />
+        <UKIconButton alt={"Hello world"} color={"standard"} width={"wide"} size={"xl"} icon={PERSON_ICON} disabled={true} onClick={() => 0} />
       </div>
 
-      <UKSplitButton onClick={() => 0} dropDownItems={[]}>
-        Hello world
-      </UKSplitButton>
+      <UKText size="m" role="title">Split Button</UKText>
 
-      <UKChip type="assist" leadingIcon="person">
+      <UKSplitButton
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKText size="m" role="title">Chips</UKText>
+
+      <UKText size="s" role="title">Assist Chip</UKText>
+      <UKChip type="assist">{"Hello world"}</UKChip>
+      <UKText size="s" role="title">Filter Deselectable Chip</UKText>
+      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}}>
         {"Hello world"}
       </UKChip>
+      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "icon", value: PERSON_ICON }}>
+        {"Hello world"}
+      </UKChip>
+      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "image", value: "https://google.com/favicon.ico" }}>
+        {"Hello world"}
+      </UKChip>
+      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={true} select={() => {}} leading={{ type: "avatar", value: "https://google.com/favicon.ico" }}>
+        {"Hello world"}
+      </UKChip>
+      <UKChip type="filter_deselectable" deselect={() => {}} isSelected={false} select={() => {}}>
+        {"Hello world"}
+      </UKChip>
+      <UKText size="s" role="title">Filter Dropdown Chip</UKText>
+      <UKChip type="filter_dropdown" defaultSelectionId="1" onSelectItem={() => {}} items={[ { id: "1", label: "First", icon: PERSON_ICON }, { id: "2", label: "Seccond" }, { id: "3", label: "Third" } ]}/>
+      <UKText size="s" role="title">Filter Removable Chip</UKText>
+      <UKChip onRemove={() => {}} type="filter_removable">{"Hello world"}</UKChip>
+      <UKText size="s" role="title">Input Chip</UKText>
+      <UKChip type="input">{"Hello world"}</UKChip>
+      <UKText size="s" role="title">Suggestion Chip</UKText>
+      <UKChip type="suggestion">{"Hello world"}</UKChip>
 
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="primary" size="small">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="primary" size="small">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="primary" size="medium">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="primary" size="medium">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="primary" size="large">
-        Test
-      </UKExtendedFloatingActionButton>
-
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="secondary" size="small">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="secondary" size="medium">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="secondary" size="large">
-        Test
-      </UKExtendedFloatingActionButton>
-
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tertiary" size="small">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tertiary" size="medium">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tertiary" size="large">
-        Test
-      </UKExtendedFloatingActionButton>
-
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-primary" size="small">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-primary" size="medium">
-        Test
-      </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-primary" size="large">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="primary" size="large">
         Test
       </UKExtendedFloatingActionButton>
 
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-secondary" size="small">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="secondary" size="small">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-secondary" size="medium">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="secondary" size="medium">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-secondary" size="large">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="secondary" size="large">
         Test
       </UKExtendedFloatingActionButton>
 
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-tertiary" size="small">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tertiary" size="small">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-tertiary" size="medium">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tertiary" size="medium">
         Test
       </UKExtendedFloatingActionButton>
-      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={"mail"} color="tonal-tertiary" size="large">
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tertiary" size="large">
+        Test
+      </UKExtendedFloatingActionButton>
+
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-primary" size="small">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-primary" size="medium">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-primary" size="large">
+        Test
+      </UKExtendedFloatingActionButton>
+
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-secondary" size="small">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-secondary" size="medium">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-secondary" size="large">
+        Test
+      </UKExtendedFloatingActionButton>
+
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-tertiary" size="small">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-tertiary" size="medium">
+        Test
+      </UKExtendedFloatingActionButton>
+      <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="tonal-tertiary" size="large">
         Test
       </UKExtendedFloatingActionButton>
 

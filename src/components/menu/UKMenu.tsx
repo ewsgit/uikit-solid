@@ -38,7 +38,7 @@ export type MenuItem =
 const UKMenu: Component<{
   items: (MenuItem | undefined)[];
   class?: string;
-  showMenu: Accessor<{x: number; y: number} | false>;
+  showMenu: Accessor<{x: number; y: number, minWidth?: number, align?: "left" | "right" } | false>;
   closeMenu(): void;
   vibrant?: boolean;
 }> = (props) => {
@@ -63,10 +63,17 @@ const UKMenu: Component<{
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              props.closeMenu();
+              e.currentTarget.style.pointerEvents = "none"
               const element = document.elementFromPoint(e.clientX, e.clientY);
-              if (!element) return;
-              if ("click" in element) if (typeof element.click === "function") element.click();
+              if (element) {
+                if ("click" in element) {
+                  if (typeof element.click === "function") {
+                    element.click();
+                  }
+                }
+              }
+              e.currentTarget.style.pointerEvents = "unset"
+              props.closeMenu();
             }}
             onContextMenu={(e) => {
               e.preventDefault();
@@ -92,12 +99,15 @@ const UKMenu: Component<{
           {/** biome-ignore lint/a11y/noStaticElementInteractions: TODO: create an explanation for this */}
           <div
             data-vibrant={props.vibrant}
+            data-align={(props.showMenu() as { align: "left" | "right"}).align}
             onContextMenu={(e) => e.preventDefault()}
             onClick={() => props.closeMenu()}
             class={clsx(styles.root, props.class)}
             style={{
               top: `${(props.showMenu() as {y: number}).y}px`,
-              left: `${(props.showMenu() as {x: number}).x}px`,
+              left: (props.showMenu() as {align: "left" | "right"}).align === "right" ? `${(props.showMenu() as {x: number}).x}px` : "unset",
+              right: (props.showMenu() as {align: "left" | "right"}).align === "left" ? `${(props.showMenu() as {x: number}).x}px` : "unset",
+              "min-width": `${(props.showMenu() as {minWidth: number}).minWidth}px`
             }}
           >
             <For each={props.items}>

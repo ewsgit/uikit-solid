@@ -3,42 +3,12 @@
   flex-direction: row;
   gap: 0.5rem;
 
-  & > button:first-child:active {
-    margin-left: calc(calc(calc(var(--padding-left) * 1.15) - calc(var(--padding-left))) * -1);
-  }
-
-  & > button:active {
-    --padding-left-override: calc(var(--padding-left) * 1.15);
-    --padding-right-override: calc(var(--padding-left) * 1.15);
-  }
-
-  & > button:active + button,
-  & > button:has(+ button:active) {
-    --padding-left-override: calc(var(--padding-left) - calc(calc(var(--padding-left) * 1.075) - var(--padding-left)));
-    --padding-right-override: calc(var(--padding-right) - calc(calc(var(--padding-right) * 1.075) - var(--padding-right)));
-  }
-
-  & > button:disabled:active {
-    --padding-left-override: unset;
-    --padding-right-override: unset;
-
-    & + button {
-      --padding-left-override: unset;
-      --padding-right-override: unset;
-    }
-  }
-
-  & > button:has(+ button:disabled:active) {
-    --padding-left-override: unset;
-    --padding-right-override: unset;
-  }
-
   &[data-connected="true"] {
     &[data-size="xs"] {
       gap: 2px;
       height: 32px;
 
-      & > button {
+      & > button:not([disabled]) {
         &:not(:last-child):not(:active) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
@@ -55,7 +25,7 @@
       gap: 2px;
       height: 40px;
 
-      & > button {
+      & > button:not([disabled]) {
         &:not(:last-child):not(:active) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
@@ -72,7 +42,7 @@
       gap: 2px;
       height: 56px;
 
-      & > button {
+      & > button:not([disabled]) {
         &:not(:last-child):not(:active) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
@@ -89,7 +59,7 @@
       gap: 2px;
       height: 96px;
 
-      & > button {
+      & > button:not([disabled]) {
         &:not(:last-child):not(:active) {
           border-top-right-radius: var(--uk-sys-shape-corner-large) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-large) !important;
@@ -106,7 +76,7 @@
       gap: 2px;
       height: 136px;
 
-      & > button {
+      & > button:not([disabled]) {
         &:not(:last-child):not(:active) {
           border-top-right-radius: 20px !important;
           border-bottom-right-radius: 20px !important;

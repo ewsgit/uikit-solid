@@ -1,37 +1,42 @@
-import {createSignal, type Component} from "solid-js";
+import STAT_MINUS_1_ICON from "@material-symbols/svg-700/outlined/stat_minus_1.svg";
+import { type Component, createSignal } from "solid-js";
 import UKButton from "../button/UKButton";
-import type {SplitButtonColor} from "./lib/color";
-import type {SplitButtonSize} from "./lib/size";
+import UKButtonGroup from "../buttonGroup/UKButtonGroup";
 import UKIconButton from "../iconButton/UKIconButton";
-import styles from "./UKSplitButton.module.scss"
+import UKMenu, { type MenuItem } from "../menu/UKMenu";
+import type { SplitButtonColor } from "./lib/color";
+import type { SplitButtonSize } from "./lib/size";
+import styles from "./UKSplitButton.module.scss";
 
 const UKSplitButton: Component<{
-  children: string;
   class?: string;
   color?: SplitButtonColor;
   disabled?: boolean;
-  onClick: (event: MouseEvent & {currentTarget: HTMLButtonElement; target: Element}) => void;
   size?: SplitButtonSize;
-  // TODO: create a type for this
-  dropDownItems: unknown;
+  items: (MenuItem | undefined)[];
 }> = (props) => {
-  const [ dropdownSelected, setDropdownSelected ] = createSignal<boolean>(false);
+  const [dropdownSelected, setDropdownSelected] = createSignal<{x: number, y: number, align: "right", minWidth: number} | false>(false);
 
   return (
-    <div class={styles.root}>
-      <UKButton class={styles.textButton} color={props.color} onClick={props.onClick}>
-        {props.children}
+    <UKButtonGroup connected size={props.size || "s"} class={styles.root}>
+      <UKButton class={styles.textButton} size={props.size || "s"} color={props.color} onClick={() => {
+        props.items.find(item => item?.type === "button")?.onClick();
+      }}>
+        {props.items.find(item => item?.type === "button")?.label}
       </UKButton>
       <UKIconButton
         class={styles.iconButton}
-        icon={"stat_minus_1"}
+        color={props.color !== "elevated" ? props.color : "filled"}
+        icon={STAT_MINUS_1_ICON}
+        size={props.size || "s"}
         alt="alt"
-        onClick={() => {
-          setDropdownSelected(!dropdownSelected());
+        onClick={(event) => {
+          const br = event.currentTarget.parentElement!.getBoundingClientRect()
+          setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
         }}
       />
-      {/* TODO: add a menu here! */}
-    </div>
+      <UKMenu vibrant showMenu={dropdownSelected} closeMenu={() => setDropdownSelected(false)} items={props.items}></UKMenu>
+    </UKButtonGroup>
   );
 };
 
