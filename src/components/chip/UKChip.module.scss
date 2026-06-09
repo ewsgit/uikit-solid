@@ -1,10 +1,10 @@
 .root {
   padding: 0.25rem;
   height: 2rem;
+  max-width: max-content;
   display: flex;
   flex-direction: row;
   gap: 0.25rem;
-  width: max-content;
   user-select: none;
   cursor: pointer;
 
@@ -16,11 +16,26 @@
     border-style: solid;
     border-color: rgb(var(--uk-sys-color-outline-variant));
     background-color: rgb(var(--uk-sys-color-surface-container-low));
+    color: rgb(var(--uk-sys-color-on-surface-container-low));
   }
 
-  &[data-type="filter"] {
+  &[data-type="filter_removable"],
+  &[data-type="filter_dropdown"],
+  &[data-type="filter_deselectable"] {
     border-radius: var(--uk-sys-shape-corner-small);
     height: 2rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(var(--uk-sys-color-outline-variant));
+    color: rgb(var(--uk-sys-color-on-surface-container-low));
+    background-color: rgb(var(--uk-sys-color-surface-container-low));
+
+    &[data-selected="true"] {
+      border-color: rgb(var(--uk-sys-color-secondary-container));
+      border-width: 0px;
+      color: rgb(var(--uk-sys-color-on-secondary-container));
+      background-color: rgb(var(--uk-sys-color-secondary-container));
+    }
   }
 
   &[data-noLeadingIcon="true"] {

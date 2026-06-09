@@ -6,8 +6,6 @@
 }
 
 .textButton {
-  border-top-right-radius: 0;
-
   &[data-size="xs"] {
     border-top-right-radius: 0.25rem !important;
     border-bottom-right-radius: 0.25rem !important;

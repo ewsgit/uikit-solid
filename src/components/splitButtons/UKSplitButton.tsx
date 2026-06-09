@@ -15,12 +15,14 @@ const UKSplitButton: Component<{
   disabled?: boolean;
   size?: SplitButtonSize;
   items: (MenuItem | undefined)[];
+  showIcon?: boolean;
 }> = (props) => {
   const [dropdownSelected, setDropdownSelected] = createSignal<{ x: number; y: number; align: "right"; minWidth: number } | false>(false);
 
   return (
     <div class={styles.root}>
       <UKButton
+        leadingIcon={(props.showIcon && props.items.find((item) => item?.type === "button")?.leadingIcon) || undefined}
         class={styles.textButton}
         size={props.size || "s"}
         color={props.color}
