@@ -83,7 +83,16 @@
     }
   }
 
+  > div {
+    transition: var(--uk-sys-motion-duration-200) var(--uk-sys-motion-easing-standard-normal);
+    transform-origin: center center;
+  }
+
   &.iconButtonDropdownSelected {
     border-radius: var(--button-height) !important;
+
+    > div {
+      transform: rotate(180deg);
+    }
   }
 }

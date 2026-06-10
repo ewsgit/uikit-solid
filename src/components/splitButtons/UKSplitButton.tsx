@@ -1,13 +1,12 @@
 import STAT_MINUS_1_ICON from "@material-symbols/svg-700/outlined/stat_minus_1.svg";
+import clsx from "clsx";
 import { type Component, createSignal } from "solid-js";
 import UKButton from "../button/UKButton";
-import UKButtonGroup from "../buttonGroup/UKButtonGroup";
 import UKIconButton from "../iconButton/UKIconButton";
 import UKMenu, { type MenuItem } from "../menu/UKMenu";
 import type { SplitButtonColor } from "./lib/color";
 import type { SplitButtonSize } from "./lib/size";
 import styles from "./UKSplitButton.module.scss";
-import clsx from "clsx";
 
 const UKSplitButton: Component<{
   class?: string;
@@ -43,7 +42,7 @@ const UKSplitButton: Component<{
           setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
         }}
       />
-      <UKMenu vibrant showMenu={dropdownSelected} closeMenu={() => setDropdownSelected(false)} items={props.items}></UKMenu>
+      <UKMenu vibrant showMenu={dropdownSelected} closeMenu={() => setDropdownSelected(false)} items={props.items} />
     </div>
   );
 };
