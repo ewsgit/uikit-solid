@@ -154,7 +154,7 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
 
 export default function App() {
   return (
-    <Root class={css`display: flex; flex-direction: column; gap: 1rem; padding: 1rem;`}>
+    <Root class={css`display: flex; flex-direction: column; gap: 1rem; padding: 1rem; height: 100%; overflow-y: auto;`}>
       <ButtonVariantsForSize size={"xs"} />
       <UKDivider direction={DividerDirection.horizontal} />
       <ButtonVariantsForSize size={"s"} />
@@ -1361,6 +1361,16 @@ export default function App() {
       <UKChip
         type="filter_dropdown"
         defaultSelectionId="1"
+        onSelectItem={() => {}}
+        items={[
+          { id: "1", label: "First", icon: PERSON_ICON },
+          { id: "2", label: "Second" },
+          { id: "3", label: "Third" },
+        ]}
+      />
+      <UKChip
+        type="filter_dropdown"
+        placeholderText="Select an item"
         onSelectItem={() => {}}
         items={[
           { id: "1", label: "First", icon: PERSON_ICON },
