@@ -1,12 +1,12 @@
+import ARROW_DROP_DOWN_ICON from "@material-symbols/svg-700/outlined/arrow_drop_down.svg";
+import CLOSE_ICON from "@material-symbols/svg-700/outlined/close.svg";
 import clsx from "clsx";
-import { createSignal, type Component } from "solid-js";
+import { type Component, createSignal } from "solid-js";
+import UKAvatar from "../avatar/UKAvatar";
 import UKIcon from "../icon/UKIcon";
+import UKMenu from "../menu/UKMenu";
 import UKText from "../text/UKText";
 import styles from "./UKChip.module.scss";
-import UKAvatar from "../avatar/UKAvatar";
-import CLOSE_ICON from "@material-symbols/svg-700/outlined/close.svg";
-import ARROW_DROP_DOWN_ICON from "@material-symbols/svg-700/outlined/arrow_drop_down.svg";
-import UKMenu from "../menu/UKMenu";
 
 interface BaseChip {
   class?: string;
@@ -28,8 +28,15 @@ interface RemovableFilterChip extends BaseChip {
 interface DropDownFilterChip extends BaseChip {
   type: "filter_dropdown";
   items: { icon?: string; label: string; id: string }[];
-  defaultSelectionId: string;
   onSelectItem: (itemId: string) => void;
+}
+
+interface DropDownFilterChipWithDefaultSelection extends DropDownFilterChip {
+  defaultSelectionId: string;
+}
+
+interface DropDownFilterChipWithPlaceholderText extends DropDownFilterChip {
+  placeholderText: string;
 }
 
 interface DeselectableFilterChip extends BaseChip {
@@ -52,9 +59,17 @@ interface SuggestionChip extends BaseChip {
   onClick?: () => void;
 }
 
-const UKChip: Component<AssistChip | RemovableFilterChip | DropDownFilterChip | DeselectableFilterChip | InputChip | SuggestionChip> = (props) => {
+const UKChip: Component<
+  | AssistChip
+  | RemovableFilterChip
+  | DropDownFilterChipWithDefaultSelection
+  | DropDownFilterChipWithPlaceholderText
+  | DeselectableFilterChip
+  | InputChip
+  | SuggestionChip
+> = (props) => {
   const [dropdownSelected, setDropdownSelected] = createSignal<{ x: number; y: number; align: "right"; minWidth: number } | false>(false);
-  const [selectedValue, setSelectedValue] = createSignal<string | undefined>(undefined);
+  const [selectedValue, setSelectedValue] = createSignal<string | undefined>("defaultSelectionId" in props ? props.defaultSelectionId : undefined);
 
   return (
     <button
@@ -65,16 +80,18 @@ const UKChip: Component<AssistChip | RemovableFilterChip | DropDownFilterChip | 
       onClick={
         "onClick" in props
           ? props.onClick
-          : "deselect" in props ? props.deselect : (event) => {
-              if (props.type !== "filter_dropdown") return;
+          : "deselect" in props
+            ? props.deselect
+            : (event) => {
+                if (props.type !== "filter_dropdown") return;
 
-              if (dropdownSelected() !== false) {
-                return setDropdownSelected(false);
+                if (dropdownSelected() !== false) {
+                  return setDropdownSelected(false);
+                }
+
+                const br = event.currentTarget!.getBoundingClientRect();
+                setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
               }
-
-              const br = event.currentTarget!.getBoundingClientRect();
-              setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
-            }
       }
     >
       {props.type === "filter_dropdown"
@@ -87,7 +104,15 @@ const UKChip: Component<AssistChip | RemovableFilterChip | DropDownFilterChip | 
         <UKAvatar size="xs" containerClass={styles.leadingAvatar} avatar={props.leading.value} username={props.leading.alt || "Unknown"}></UKAvatar>
       )}
       <UKText role="label" size="m" emphasized={false} class={styles.label}>
-        {props.type === "filter_dropdown" ? props.items.find((i) => i.id === selectedValue())?.label : "children" in props && props.children}
+        {props.type === "filter_dropdown"
+          ? props.items.find((i) => i.id === selectedValue())?.label !== undefined
+            ? props.items.find((i) => i.id === selectedValue())?.label
+            : "placeholderText" in props
+              ? (props.placeholderText as string)
+              : null
+          : "children" in props
+            ? props.children
+            : "missing"}
       </UKText>
       {("deselect" in props || props.type === "filter_dropdown") && (
         <UKIcon class={clsx(styles.trailingIcon, dropdownSelected() !== false && styles.dropdownOpen)}>
