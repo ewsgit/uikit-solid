@@ -1,6 +1,7 @@
 import ARROW_LEFT_ICON from "@material-symbols/svg-700/outlined/arrow_left.svg";
 import ARROW_RIGHT_ICON from "@material-symbols/svg-700/outlined/arrow_right.svg";
 import BORG_ICON from "@material-symbols/svg-700/outlined/borg.svg";
+import CODE_ICON from "@material-symbols/svg-700/outlined/code.svg";
 import FACE_ICON from "@material-symbols/svg-700/outlined/face.svg";
 import MAIL_ICON from "@material-symbols/svg-700/outlined/mail.svg";
 import PERSON_ICON from "@material-symbols/svg-700/outlined/person.svg";
@@ -37,10 +38,10 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
       </UKText>
       <div
         class={css`
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-wrap: wrap;
-                `}
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+              `}
       >
         <UKButton color="filled" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
@@ -67,10 +68,10 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
       </UKText>
       <div
         class={css`
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-wrap: wrap;
-                `}
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+              `}
       >
         <UKButton color="tonal" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
@@ -97,10 +98,10 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
       </UKText>
       <div
         class={css`
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-wrap: wrap;
-                `}
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+              `}
       >
         <UKButton color="outlined" size={size} type={"toggle"} onClick={() => {}}>
           Confirm
@@ -127,10 +128,10 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
       </UKText>
       <div
         class={css`
-                    display: flex;
-                    gap: 0.5rem;
-                    flex-wrap: wrap;
-                `}
+                display: flex;
+                gap: 0.5rem;
+                flex-wrap: wrap;
+              `}
       >
         <UKButton color="standard" size={size} onClick={() => {}}>
           Confirm
@@ -155,6 +156,25 @@ const ButtonVariantsForSize: Component<{ size: ButtonSize }> = ({ size }) => {
 export default function App() {
   return (
     <Root class={css`display: flex; flex-direction: column; gap: 1rem; padding: 1rem; height: 100%; overflow-y: auto;`}>
+      <UKText size="l" role="display" emphasized>
+        UIKit For SolidJS
+      </UKText>
+      <UKText size="l" role="label" class={css`margin-top: -1rem;`}>
+        Inspired by Google's Material Expressive design
+      </UKText>
+      <UKChip
+        type="assist"
+        leading={{
+          type: "icon",
+          value: CODE_ICON,
+        }}
+        onClick={() => {
+          window.location.href = "https://tangled.org/ewsgit.uk/uikit-solid";
+        }}
+      >
+        Source Code
+      </UKChip>
+
       <ButtonVariantsForSize size={"xs"} />
       <UKDivider direction={DividerDirection.horizontal} />
       <ButtonVariantsForSize size={"s"} />
@@ -165,12 +185,16 @@ export default function App() {
       <UKDivider direction={DividerDirection.horizontal} />
       <ButtonVariantsForSize size={"xl"} />
 
+      <UKText size="m" role="title">
+        Badge
+      </UKText>
+
       <UKCard
         class={css`
           gap: 0.5rem;
           display: flex;
           flex-direction: column;
-      `}
+        `}
       >
         <UKBadge count={12}>
           <div
@@ -186,19 +210,23 @@ export default function App() {
             class={css`
               background: rgb(${uk.sys.color["secondary-container"]});
               padding: 1rem;
-           `}
+            `}
           ></div>
         </UKBadge>
 
         <UKBadge count={1}>
           <div
             class={css`
-                background: rgb(${uk.sys.color["secondary-container"]});
-                padding: 1rem;
-           `}
+              background: rgb(${uk.sys.color["secondary-container"]});
+              padding: 1rem;
+            `}
           ></div>
         </UKBadge>
       </UKCard>
+
+      <UKText size="m" role="title">
+        List
+      </UKText>
 
       <UKList>
         <UKListItem labelText={"Heading"} supportingText={"Supporting text"} onClick={() => {}} />
@@ -278,6 +306,10 @@ export default function App() {
           onClick={() => {}}
         />
       </UKList>
+
+      <UKText size="m" role="title">
+        Button Group
+      </UKText>
 
       <UKButtonGroup size={"xs"}>
         <UKButton color="filled" size={"xs"} type={"toggle"} onClick={() => {}}>
@@ -462,6 +494,10 @@ export default function App() {
       {/* <UKSplitFilledButton onClick={() => 0} dropDownItems={[]}>
                 test
             </UKSplitFilledButton> */}
+
+      <UKText size="m" role="title">
+        Icon Button
+      </UKText>
 
       <div
         class={css`
@@ -1392,6 +1428,10 @@ export default function App() {
         Suggestion Chip
       </UKText>
       <UKChip type="suggestion">{"Hello world"}</UKChip>
+
+      <UKText size="m" role="title">
+        Extended Floating Action Button
+      </UKText>
 
       <UKExtendedFloatingActionButton onClick={() => 0} leadingIcon={MAIL_ICON} color="primary" size="small">
         Test
