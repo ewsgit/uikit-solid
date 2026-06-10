@@ -38,6 +38,10 @@ const UKSplitButton: Component<{
         size={props.size || "s"}
         alt="alt"
         onClick={(event) => {
+          if (dropdownSelected() !== false) {
+            return setDropdownSelected(false);
+          }
+
           const br = event.currentTarget.parentElement!.getBoundingClientRect();
           setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
         }}

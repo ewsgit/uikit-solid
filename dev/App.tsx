@@ -1206,6 +1206,43 @@ export default function App() {
       />
 
       <UKSplitButton
+        size="m"
+        color="outlined"
+        showIcon={true}
+        items={[
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+            leadingIcon: PERSON_ICON,
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+          {
+            type: "button",
+            label: "Hello World!",
+            onClick() {
+              alert("clicked!!!");
+            },
+          },
+        ]}
+      />
+
+      <UKSplitButton
         size="l"
         showIcon={true}
         items={[

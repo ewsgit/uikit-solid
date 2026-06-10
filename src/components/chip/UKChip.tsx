@@ -1,10 +1,12 @@
 import clsx from "clsx";
-import type { Component } from "solid-js";
+import { createSignal, type Component } from "solid-js";
 import UKIcon from "../icon/UKIcon";
 import UKText from "../text/UKText";
 import styles from "./UKChip.module.scss";
 import UKAvatar from "../avatar/UKAvatar";
 import CLOSE_ICON from "@material-symbols/svg-700/outlined/close.svg";
+import ARROW_DROP_DOWN_ICON from "@material-symbols/svg-700/outlined/arrow_drop_down.svg";
+import UKMenu from "../menu/UKMenu";
 
 interface BaseChip {
   class?: string;
@@ -51,25 +53,64 @@ interface SuggestionChip extends BaseChip {
 }
 
 const UKChip: Component<AssistChip | RemovableFilterChip | DropDownFilterChip | DeselectableFilterChip | InputChip | SuggestionChip> = (props) => {
+  const [dropdownSelected, setDropdownSelected] = createSignal<{ x: number; y: number; align: "right"; minWidth: number } | false>(false);
+  const [selectedValue, setSelectedValue] = createSignal<string | undefined>(undefined);
+
   return (
     <button
       type="button"
       class={clsx(styles.root, props.class)}
       data-type={props.type}
       data-selected={props.type === "filter_deselectable" ? props.isSelected : props.type === "filter_dropdown" ? true : props.type === "filter_removable"}
-      data-noLeadingIcon={!("leadingIcon" in props && props.leadingIcon)}
-      data-noTrailingIcon={!("trailingIcon" in props && props.trailingIcon)}
-      onClick={"onClick" in props ? props.onClick : () => {}}
+      onClick={
+        "onClick" in props
+          ? props.onClick
+          : "deselect" in props ? props.deselect : (event) => {
+              if (props.type !== "filter_dropdown") return;
+
+              if (dropdownSelected() !== false) {
+                return setDropdownSelected(false);
+              }
+
+              const br = event.currentTarget!.getBoundingClientRect();
+              setDropdownSelected({ x: br.x, y: br.bottom, align: "right", minWidth: br.width });
+            }
+      }
     >
-      {"leading" in props && props.leading?.type === "icon" && <UKIcon class={styles.icon}>{props.leading.value}</UKIcon>}
-      {"leading" in props && props.leading?.type === "image" && <img alt={props.leading.alt || ""} class={styles.icon} src={props.leading.value} />}
+      {props.type === "filter_dropdown"
+        ? props.items.find((i) => i.id === selectedValue())?.icon && (
+            <UKIcon class={styles.leadingIcon}>{props.items.find((i) => i.id === selectedValue())?.icon || "missing_icon?"}</UKIcon>
+          )
+        : "leading" in props && props.leading?.type === "icon" && <UKIcon class={styles.leadingIcon}>{props.leading.value}</UKIcon>}
+      {"leading" in props && props.leading?.type === "image" && <img class={styles.leadingImage} alt={props.leading.alt || ""} src={props.leading.value} />}
       {"leading" in props && props.leading?.type === "avatar" && (
-        <UKAvatar size="xs" class={styles.icon} avatar={props.leading.value} username={props.leading.alt || "Unknown"}></UKAvatar>
+        <UKAvatar size="xs" containerClass={styles.leadingAvatar} avatar={props.leading.value} username={props.leading.alt || "Unknown"}></UKAvatar>
       )}
       <UKText role="label" size="m" emphasized={false} class={styles.label}>
-        {"children" in props && props.children}
+        {props.type === "filter_dropdown" ? props.items.find((i) => i.id === selectedValue())?.label : "children" in props && props.children}
       </UKText>
-      {"deselect" in props && <UKIcon class={styles.icon}>{CLOSE_ICON}</UKIcon>}
+      {("deselect" in props || props.type === "filter_dropdown") && (
+        <UKIcon class={clsx(styles.trailingIcon, dropdownSelected() !== false && styles.dropdownOpen)}>
+          {props.type === "filter_dropdown" ? ARROW_DROP_DOWN_ICON : CLOSE_ICON}
+        </UKIcon>
+      )}
+      {props.type === "filter_dropdown" && (
+        <UKMenu
+          vibrant
+          showMenu={dropdownSelected}
+          closeMenu={() => setDropdownSelected(false)}
+          items={props.items.map((item) => {
+            return {
+              type: "button",
+              label: item.label,
+              leadingIcon: item.icon,
+              onClick() {
+                setSelectedValue(item.id);
+              },
+            };
+          })}
+        />
+      )}
     </button>
   );
 };

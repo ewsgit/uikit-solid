@@ -1,10 +1,14 @@
 .root {
-  padding: 0.25rem;
   height: 2rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
   max-width: max-content;
   display: flex;
   flex-direction: row;
-  gap: 0.25rem;
+  gap: 0.5rem;
   user-select: none;
   cursor: pointer;
 
@@ -38,12 +42,34 @@
     }
   }
 
-  &[data-noLeadingIcon="true"] {
+  &:has(> .leadingIcon),
+  &:has(> .leadingImage),
+  &:has(> .leadingAvatar) {
     padding-left: 0.5rem;
   }
 
-  &[data-noTrailingIcon="true"] {
+  &:has(> .trailingIcon) {
     padding-right: 0.5rem;
+  }
+}
+
+.leadingIcon {
+  --icon-size: 18px;
+}
+
+.leadingImage {
+  // do nothing
+  height: 18px;
+  width: 18px;
+  display: block;
+  margin: 0;
+}
+
+.leadingAvatar {
+  --size: 18px !important;
+
+  > img {
+    --size: 18px;
   }
 }
 
@@ -52,6 +78,12 @@
   align-self: center;
 }
 
-.icon {
+.trailingIcon {
   --icon-size: 18px;
+  transition: var(--uk-sys-motion-duration-200) var(--uk-sys-motion-easing-standard-normal);
+  transform-origin: center center;
+}
+
+.dropdownOpen {
+  transform: rotate(180deg);
 }

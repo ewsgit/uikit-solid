@@ -14,7 +14,7 @@
   display: flex;
   flex-direction: column;
   transform-origin: top left;
-  animation: animateIn 100ms ease-in-out forwards;
+  animation: animateIn 100ms var(--uk-sys-motion-easing-standard-decelerate) forwards;
   z-index: 21;
 
   &[data-align="left"] {
@@ -68,10 +68,7 @@
 
   &:hover {
     &::after {
-      background-color: rgb(
-        var(--uk-sys-color-on-surface),
-        var(--uk-sys-state-hover-state-layer-opacity)
-      );
+      background-color: rgb(var(--uk-sys-color-on-surface), var(--uk-sys-state-hover-state-layer-opacity));
     }
   }
 
@@ -208,10 +205,7 @@
 
     &:hover {
       &::after {
-        background-color: rgb(
-          var(--uk-sys-color-on-tertiary-container),
-          var(--uk-sys-state-hover-state-layer-opacity)
-        );
+        background-color: rgb(var(--uk-sys-color-on-tertiary-container), var(--uk-sys-state-hover-state-layer-opacity));
       }
     }
 

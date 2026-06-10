@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import {type Accessor, type Component, createSignal, For} from "solid-js";
-import {Portal} from "solid-js/web";
+import { type Accessor, type Component, createEffect, createSignal, For } from "solid-js";
+import { Portal } from "solid-js/web";
 import UKDivider from "../divider/UKDivider.tsx";
 import UKIcon from "../icon/UKIcon.tsx";
 import UKText from "../text/UKText.tsx";
@@ -8,62 +8,68 @@ import styles from "./UKMenu.module.scss";
 
 export type MenuItem =
   | {
-    type: "button";
-    leadingIcon?: string;
-    label?: string;
-    supportingText?: string;
-    badge?: string;
-    onClick(): void | Promise<void>;
-    selected?: boolean;
-    disabled?: boolean;
-  }
+      type: "button";
+      leadingIcon?: string;
+      label?: string;
+      supportingText?: string;
+      badge?: string;
+      onClick(): void | Promise<void>;
+      selected?: boolean;
+      disabled?: boolean;
+    }
   | {
-    type: "category";
-    leadingIcon?: string;
-    supportingText?: string;
-    label?: string;
-    badge?: string;
-    children?: MenuItem[];
-    onClick?(): void;
-    selected?: boolean;
-    disabled?: boolean;
-  }
+      type: "category";
+      leadingIcon?: string;
+      supportingText?: string;
+      label?: string;
+      badge?: string;
+      children?: MenuItem[];
+      onClick?(): void;
+      selected?: boolean;
+      disabled?: boolean;
+    }
   | {
-    type: "divider";
-  }
+      type: "divider";
+    }
   | {
-    type: "spacer";
-  };
+      type: "spacer";
+    };
 
 const UKMenu: Component<{
   items: (MenuItem | undefined)[];
   class?: string;
-  showMenu: Accessor<{x: number; y: number, minWidth?: number, align?: "left" | "right" } | false>;
+  showMenu: Accessor<{ x: number; y: number; minWidth?: number; align?: "left" | "right" } | false>;
   closeMenu(): void;
   vibrant?: boolean;
 }> = (props) => {
-  const [ ref, setRef ] = createSignal<Element | undefined>();
+  const [ref, setRef] = createSignal<Element | undefined>();
+
+  // TODO: maybe implement this another way (this does not work)
+  // createEffect((showMenu) => {
+  //   if (showMenu !== false) {
+  //     ref()?.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, props.showMenu());
 
   return (
     <>
       {/*{selected() !== undefined && (
-                <UKMenu
-                    vibrant={props.vibrant}
-                    showMenu={{ x: ref()!.clientLeft, y: ref()!.clientTop }}
-                    items={(props.items[selected() as number] as { children: MenuItem[] }).children || []}
-                />
-            )}*/}
-      <div style={{position: "fixed", "pointer-events": "none", visibility: "hidden", display: "none"}} ref={setRef}></div>
+        <UKMenu
+          vibrant={props.vibrant}
+          showMenu={{ x: ref()!.clientLeft, y: ref()!.clientTop }}
+          items={(props.items[selected() as number] as { children: MenuItem[] }).children || []}
+        />
+      )}*/}
+      <div style={{ position: "fixed", "pointer-events": "none", visibility: "hidden", display: "none" }} ref={setRef}></div>
       {props.showMenu() !== false && (
         <Portal mount={ref()?.closest('[data-uikit-root="true"]') || document.body}>
-          {/** biome-ignore lint/a11y/useKeyWithClickEvents: TODO: create an explanation for this */}
-          {/** biome-ignore lint/a11y/noStaticElementInteractions: TODO: create an explanation for this */}
+          {/** biome-ignore lint/a11y/noStaticElementInteractions: this element is not intended to be a button */}
           <div
             class={styles.background}
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              e.currentTarget.style.pointerEvents = "none"
+              e.currentTarget.style.pointerEvents = "none";
               const element = document.elementFromPoint(e.clientX, e.clientY);
               if (element) {
                 if ("click" in element) {
@@ -72,7 +78,7 @@ const UKMenu: Component<{
                   }
                 }
               }
-              e.currentTarget.style.pointerEvents = "unset"
+              e.currentTarget.style.pointerEvents = "unset";
               props.closeMenu();
             }}
             onContextMenu={(e) => {
@@ -94,20 +100,25 @@ const UKMenu: Component<{
             onMouseMove={(e) => {
               e.stopPropagation();
             }}
+            onKeyDown={(e) => {
+              e.stopPropagation();
+
+              if (e.key === "Escape") {
+                props.closeMenu();
+              }
+            }}
           ></div>
-          {/** biome-ignore lint/a11y/useKeyWithClickEvents: TODO: create an explanation for this */}
-          {/** biome-ignore lint/a11y/noStaticElementInteractions: TODO: create an explanation for this */}
+          {/** biome-ignore lint/a11y/noStaticElementInteractions: only for denying right-click privileges */}
           <div
             data-vibrant={props.vibrant}
-            data-align={(props.showMenu() as { align: "left" | "right"}).align}
+            data-align={(props.showMenu() as { align: "left" | "right" }).align}
             onContextMenu={(e) => e.preventDefault()}
-            onClick={() => props.closeMenu()}
             class={clsx(styles.root, props.class)}
             style={{
-              top: `${(props.showMenu() as {y: number}).y}px`,
-              left: (props.showMenu() as {align: "left" | "right"}).align === "right" ? `${(props.showMenu() as {x: number}).x}px` : "unset",
-              right: (props.showMenu() as {align: "left" | "right"}).align === "left" ? `${(props.showMenu() as {x: number}).x}px` : "unset",
-              "min-width": `${(props.showMenu() as {minWidth: number}).minWidth}px`
+              top: `${(props.showMenu() as { y: number }).y}px`,
+              left: (props.showMenu() as { align: "left" | "right" }).align === "right" ? `${(props.showMenu() as { x: number }).x}px` : "unset",
+              right: (props.showMenu() as { align: "left" | "right" }).align === "left" ? `${(props.showMenu() as { x: number }).x}px` : "unset",
+              "min-width": `${(props.showMenu() as { minWidth: number }).minWidth}px`,
             }}
           >
             <For each={props.items}>
@@ -125,6 +136,7 @@ const UKMenu: Component<{
                         class={clsx(styles.button, item.selected && styles.selected)}
                         onClick={() => {
                           item.onClick();
+                          props.closeMenu();
                         }}
                       >
                         {item.leadingIcon && <UKIcon class={styles.icon}>{item.leadingIcon}</UKIcon>}
