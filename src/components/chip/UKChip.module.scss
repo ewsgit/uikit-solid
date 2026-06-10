@@ -13,8 +13,6 @@
   cursor: pointer;
 
   &[data-type="assist"] {
-    cursor: unset;
-
     border-radius: var(--uk-sys-shape-corner-small);
     border-width: 1px;
     border-style: solid;
