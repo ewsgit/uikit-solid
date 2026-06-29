@@ -16,12 +16,9 @@
       height: 4.5rem;
       padding-left: 0.5rem;
       padding-right: 0.5rem;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
       justify-content: center;
+      align-items: center;
       gap: 0.5rem;
-      transition: height var(--uk-sys-motion-duration-250)
-        var(--uk-sys-motion-easing-emphasized-decelerate);
     }
   }
 }
@@ -34,8 +31,6 @@
   width: 6rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  transition: width var(--uk-sys-motion-duration-250)
-    var(--uk-sys-motion-easing-emphasized-decelerate);
   gap: 0.25rem;
 
   &[data-type="modal"] {

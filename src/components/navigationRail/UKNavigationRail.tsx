@@ -57,6 +57,7 @@ const UKNavigationRail: Component<
           <Index each={props.items.filter((i) => i !== undefined)}>
             {(i) => (
               <UKNavigationRailItem
+                showLabelWhenCollapsed={true}
                 expanded={props.expanded || false}
                 {...i()}
               />

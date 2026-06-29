@@ -1,6 +1,14 @@
 import CHEVRON_RIGHT_ICON from "@material-symbols/svg-700/outlined/chevron_right.svg";
 import clsx from "clsx";
-import { type Component, createSignal, type JSXElement, Match, Show, Suspense, Switch } from "solid-js";
+import {
+  type Component,
+  createSignal,
+  type JSXElement,
+  Match,
+  Show,
+  Suspense,
+  Switch,
+} from "solid-js";
 import UKIcon from "../icon/UKIcon";
 import UKIconButton from "../iconButton/UKIconButton.tsx";
 import UKText from "../text/UKText";
@@ -30,20 +38,28 @@ const UKStackItem: Component<{
   labelText?: string;
   supportingText?: string;
 }> = (props) => {
-  const [expanded, setExpanded] = createSignal<boolean>(props.defaultExpanded ?? false);
+  const [expanded, setExpanded] = createSignal<boolean>(
+    props.defaultExpanded ?? false,
+  );
 
   if (!!props.expandedComponent && props.onClick) {
-    console.error("Cannot have a UKStackItem with both expandedComponent & onClick");
+    console.error(
+      "Cannot have a UKStackItem with both expandedComponent & onClick",
+    );
     return <>Incompatible props, check console!</>;
   }
 
   if (!props.expandedComponent) {
     if (props.onExpand) {
-      console.error("Cannot have a UKStackItem with onExpand without expandedComponent");
+      console.error(
+        "Cannot have a UKStackItem with onExpand without expandedComponent",
+      );
       return <>Incompatible props, check console!</>;
     }
     if (props.onCollapse) {
-      console.error("Cannot have a UKStackItem with onCollapse without expandedComponent");
+      console.error(
+        "Cannot have a UKStackItem with onCollapse without expandedComponent",
+      );
       return <>Incompatible props, check console!</>;
     }
   }
@@ -56,23 +72,35 @@ const UKStackItem: Component<{
             type={"button"}
             class={styles.collapsedArea}
             data-clickable={true}
-            onClick={
-              props.expandedComponent
-                ? () => {
-                    if (expanded()) {
-                      props.onCollapse?.();
-                    } else {
-                      props.onExpand?.();
-                    }
+            onClick={props.expandedComponent
+              ? () => {
+                if (expanded()) {
+                  props.onCollapse?.();
+                } else {
+                  props.onExpand?.();
+                }
 
-                    setExpanded((exp) => !exp);
-                  }
-                : props.onClick
-            }
+                setExpanded((exp) => !exp);
+              }
+              : props.onClick}
           >
-            {props.leading?.type === "iconButton" && <UKIconButton alt={props.leading.alt} onClick={props.leading.onClick} icon={props.leading.value} />}
-            {props.leading?.type === "icon" && <UKIcon class={styles.leadingIcon}>{props.leading.value}</UKIcon>}
-            {props.leading?.type === "image" && <img class={styles.leadingImage} src={props.leading.value} alt={props.leading.alt || ""} />}
+            {props.leading?.type === "iconButton" && (
+              <UKIconButton
+                alt={props.leading.alt}
+                onClick={props.leading.onClick}
+                icon={props.leading.value}
+              />
+            )}
+            {props.leading?.type === "icon" && (
+              <UKIcon class={styles.leadingIcon}>{props.leading.value}</UKIcon>
+            )}
+            {props.leading?.type === "image" && (
+              <img
+                class={styles.leadingImage}
+                src={props.leading.value}
+                alt={props.leading.alt || ""}
+              />
+            )}
             {(props.labelText || props.supportingText) && (
               <div class={styles.body}>
                 <Suspense
@@ -90,13 +118,21 @@ const UKStackItem: Component<{
                 </Suspense>
                 <Suspense
                   fallback={
-                    <UKText role={"body"} size={"m"} class={styles.supportingText}>
+                    <UKText
+                      role={"body"}
+                      size={"m"}
+                      class={styles.supportingText}
+                    >
                       ...
                     </UKText>
                   }
                 >
                   {props.supportingText && (
-                    <UKText role={"body"} size={"m"} class={styles.supportingText}>
+                    <UKText
+                      role={"body"}
+                      size={"m"}
+                      class={styles.supportingText}
+                    >
                       {props.supportingText}
                     </UKText>
                   )}
@@ -104,20 +140,35 @@ const UKStackItem: Component<{
               </div>
             )}
             <Suspense>
-              {props.inlineComponent
-                ? props.inlineComponent
-                : !!props.expandedComponent && (
-                    <UKIcon class={clsx(expanded() ? styles.indicatorExpanded : styles.indicatorCollapsed, styles.toggleIndicator)}>
-                      {CHEVRON_RIGHT_ICON}
-                    </UKIcon>
-                  )}
+              {props.inlineComponent && props.inlineComponent}
             </Suspense>
+            {props.expandedComponent && (
+              <UKIcon
+                class={clsx(
+                  expanded()
+                    ? styles.indicatorExpanded
+                    : styles.indicatorCollapsed,
+                  styles.toggleIndicator,
+                  props.inlineComponent && styles.toggleIndicatorWithInlineComponent
+                )}
+              >
+                {CHEVRON_RIGHT_ICON}
+              </UKIcon>
+            )}
           </button>
         </Match>
         <Match when={!props.onClick}>
           <div class={styles.collapsedArea} data-clickable={false}>
-            {props.leading?.type === "icon" && <UKIcon class={styles.leadingIcon}>{props.leading.value}</UKIcon>}
-            {props.leading?.type === "image" && <img class={styles.leadingImage} src={props.leading.value} alt={props.leading.alt || ""} />}
+            {props.leading?.type === "icon" && (
+              <UKIcon class={styles.leadingIcon}>{props.leading.value}</UKIcon>
+            )}
+            {props.leading?.type === "image" && (
+              <img
+                class={styles.leadingImage}
+                src={props.leading.value}
+                alt={props.leading.alt || ""}
+              />
+            )}
             {(props.labelText || props.supportingText) && (
               <div class={styles.body}>
                 <Suspense
@@ -135,13 +186,21 @@ const UKStackItem: Component<{
                 </Suspense>
                 <Suspense
                   fallback={
-                    <UKText role={"body"} size={"m"} class={styles.supportingText}>
+                    <UKText
+                      role={"body"}
+                      size={"m"}
+                      class={styles.supportingText}
+                    >
                       ...
                     </UKText>
                   }
                 >
                   {props.supportingText && (
-                    <UKText role={"body"} size={"m"} class={styles.supportingText}>
+                    <UKText
+                      role={"body"}
+                      size={"m"}
+                      class={styles.supportingText}
+                    >
                       {props.supportingText}
                     </UKText>
                   )}

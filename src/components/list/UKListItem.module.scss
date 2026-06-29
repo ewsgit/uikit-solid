@@ -168,7 +168,7 @@
 
 .labelText {
     color: rgb(var(--uk-sys-color-on-surface));
-    font-family: var(--uk-sys-typescale-body-large-font) sans-serif;
+    font-family: var(--uk-sys-typescale-body-large-font), sans-serif;
     line-height: var(--uk-sys-typescale-body-large-line-height);
     font-size: var(--uk-sys-typescale-body-large-size);
     font-kerning: var(--uk-sys-typescale-body-large-tracking);
@@ -178,7 +178,7 @@
 .supportingText {
     margin: 0;
     color: rgb(var(--uk-sys-color-on-surface-variant));
-    font-family: var(--uk-sys-typescale-body-medium-font) sans-serif;
+    font-family: var(--uk-sys-typescale-body-medium-font), sans-serif;
     line-height: var(--uk-sys-typescale-body-medium-line-height);
     font-size: var(--uk-sys-typescale-body-medium-size);
     font-kerning: var(--uk-sys-typescale-body-medium-tracking);
@@ -231,7 +231,7 @@
         color: rgb(var(--uk-sys-color-on-primary-container));
         z-index: 0;
 
-        font-family: var(--uk-sys-typescale-title-medium-font) sans-serif;
+        font-family: var(--uk-sys-typescale-title-medium-font), sans-serif;
         font-weight: var(--uk-sys-typescale-title-medium-weight);
         font-size: var(--uk-sys-typescale-title-medium-size);
         line-height: var(--uk-sys-typescale-title-medium-line-height);
@@ -254,7 +254,7 @@
     margin-left: auto;
     flex-shrink: 0;
 
-    font-family: var(--uk-sys-typescale-label-small-font) sans-serif;
+    font-family: var(--uk-sys-typescale-label-small-font), sans-serif;
     font-weight: var(--uk-sys-typescale-label-small-weight);
     font-size: var(--uk-sys-typescale-label-small-size);
     line-height: var(--uk-sys-typescale-label-small-line-height);
