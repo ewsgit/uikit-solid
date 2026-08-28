@@ -3,6 +3,7 @@ import type { Component } from "solid-js";
 import { createSignal, onCleanup } from "solid-js";
 import UKIcon from "../icon/UKIcon";
 import styles from "./UKSwitch.module.scss";
+import CHECK_ICON from "@material-symbols/svg-700/outlined/check.svg";
 
 const UKSwitch: Component<{
   value: boolean;
@@ -70,8 +71,8 @@ const UKSwitch: Component<{
       onTouchStart={handlePointerDown}
       disabled={props.disabled}
     >
-      <div data-icon={!!props.icon} class={styles.handle}>
-        {props.icon && <UKIcon>check</UKIcon>}
+      <div class={styles.handle}>
+        {props.icon !== false && <UKIcon>{CHECK_ICON}</UKIcon>}
       </div>
     </button>
   );
