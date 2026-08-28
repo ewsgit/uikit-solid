@@ -1,6 +1,6 @@
 .root {
   --icon-size: 1rem;
-  --handle-size: 1.5rem;
+  --handle-size: 1.25rem;
   --handle-padding: 0.5rem;
   --handle-padding-hover: calc(var(--handle-padding) - 0.1125rem);
   --handle-padding-active: calc(var(--handle-padding-hover) - 0.1125rem);
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: row;
   height: calc(var(--handle-size) + calc(var(--handle-padding) * 2));
-  width: calc(calc(var(--handle-size) * 1.75) + calc(var(--handle-padding) * 2));
+  width: calc(calc(var(--handle-size) * 2) + calc(var(--handle-padding) * 2));
   padding: 2px;
   border: none;
   border-radius: var(--uk-sys-shape-corner-full);
