@@ -80,8 +80,8 @@ const UKChip: Component<
       onClick={
         "onClick" in props
           ? props.onClick
-          : "deselect" in props
-            ? props.deselect
+          : props.type === "filter_deselectable"
+            ? () => (props.isSelected && props.deselect ? props.deselect() : props.select())
             : (event) => {
                 if (props.type !== "filter_dropdown") return;
 
