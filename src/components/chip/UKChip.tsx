@@ -27,6 +27,8 @@ interface RemovableFilterChip extends BaseChip {
 
 interface DropDownFilterChip extends BaseChip {
   type: "filter_dropdown";
+  // when provided the selection is controlled by the parent, an id that matches no item shows the placeholder
+  selectedId?: string;
   items: { icon?: string; label: string; id: string }[];
   onSelectItem: (itemId: string) => void;
 }
@@ -69,14 +71,21 @@ const UKChip: Component<
   | SuggestionChip
 > = (props) => {
   const [dropdownSelected, setDropdownSelected] = createSignal<{ x: number; y: number; align: "right"; minWidth: number } | false>(false);
-  const [selectedValue, setSelectedValue] = createSignal<string | undefined>("defaultSelectionId" in props ? props.defaultSelectionId : undefined);
+  const [internalSelectedValue, setSelectedValue] = createSignal<string | undefined>("defaultSelectionId" in props ? props.defaultSelectionId : undefined);
+  const selectedValue = () => ("selectedId" in props ? props.selectedId : internalSelectedValue());
 
   return (
     <button
       type="button"
       class={clsx(styles.root, props.class)}
       data-type={props.type}
-      data-selected={props.type === "filter_deselectable" ? props.isSelected : props.type === "filter_dropdown" ? true : props.type === "filter_removable"}
+      data-selected={
+        props.type === "filter_deselectable"
+          ? props.isSelected
+          : props.type === "filter_dropdown"
+            ? props.items.some((i) => i.id === selectedValue())
+            : props.type === "filter_removable"
+      }
       onClick={
         "onClick" in props
           ? props.onClick
@@ -131,6 +140,7 @@ const UKChip: Component<
               leadingIcon: item.icon,
               onClick() {
                 setSelectedValue(item.id);
+                props.onSelectItem(item.id);
               },
             };
           })}
