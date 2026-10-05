@@ -30,7 +30,10 @@ const UKTextField: Component<
   } & (
     {
       color: "outlined";
-      labelBackgroundStyle?: "filled" | "background"
+      /** Preset colour for the floating label's notch; matches the surface the field sits on */
+      labelBackgroundStyle?: "filled" | "background";
+      /** Any CSS colour (e.g. `rgb(var(--uk-sys-color-surface-container-low))`) for the label notch; overrides `labelBackgroundStyle` */
+      labelBackgroundColor?: string;
     } | {
       color: "filled";
     }
@@ -118,6 +121,7 @@ const UKTextField: Component<
         data-color={props.color}
         data-populated={characterLength() > 0}
         data-force-focus={props.forceVisualFocus}
+        style={"labelBackgroundColor" in props && props.labelBackgroundColor ? { "--uk-text-field-label-background": props.labelBackgroundColor } : undefined}
       >
         {props.leadingIcon && (
           <UKIcon onClick={props.leadingIcon.onClick} class={styles.leadingIcon}>
