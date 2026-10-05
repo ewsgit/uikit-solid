@@ -1,0 +1,92 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 80px;
+  box-sizing: border-box;
+  padding: 12px 8px 16px 8px;
+  gap: 8px;
+  background-color: rgb(var(--uk-sys-color-surface-container));
+  color: rgb(var(--uk-sys-color-on-surface-variant));
+}
+
+.item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  outline: none;
+
+  &[data-active="true"] {
+    color: rgb(var(--uk-sys-color-on-surface));
+  }
+
+  &:focus-visible .indicator {
+    outline: var(--uk-sys-state-focus-indicator-thickness) solid rgb(var(--uk-sys-color-secondary));
+    outline-offset: var(--uk-sys-state-focus-indicator-outer-offset);
+  }
+}
+
+.indicator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 32px;
+  border-radius: var(--uk-sys-shape-corner-full);
+  background-color: transparent;
+  overflow: visible;
+  transition:
+    background-color var(--uk-sys-motion-duration-200) var(--uk-sys-motion-easing-standard-normal),
+    width var(--uk-sys-motion-duration-200) var(--uk-sys-motion-easing-standard-normal);
+
+  .item[data-active="true"] & {
+    width: 64px;
+    background-color: rgb(var(--uk-sys-color-secondary-container));
+    color: rgb(var(--uk-sys-color-on-secondary-container));
+  }
+
+  .item:not([data-active="true"]):hover & {
+    background-color: rgb(var(--uk-sys-color-on-surface), var(--uk-sys-state-hover-state-layer-opacity));
+  }
+}
+
+.icon {
+  --icon-size: 24px;
+}
+
+.label {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: 8px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  background-color: rgb(var(--uk-sys-color-error));
+  color: rgb(var(--uk-sys-color-on-error));
+}

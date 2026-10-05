@@ -1,0 +1,53 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+  height: 56px;
+  padding: 0 8px 0 4px;
+  border-radius: var(--uk-sys-shape-corner-full);
+  background-color: rgb(var(--uk-sys-color-surface-container-highest));
+  color: rgb(var(--uk-sys-color-on-surface-variant));
+  transition: box-shadow var(--uk-sys-motion-duration-100) var(--uk-sys-motion-easing-standard-normal);
+
+  &:not(:has(button)):not(:has(.leadingIcon)) {
+    padding-left: 20px;
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px rgb(var(--uk-sys-color-primary));
+  }
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: rgb(var(--uk-sys-color-on-surface));
+  font-family: var(--uk-ref-typeface-plain);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  padding: 0 8px;
+
+  &::placeholder {
+    color: rgb(var(--uk-sys-color-on-surface-variant));
+    opacity: 1;
+  }
+}
+
+.trailing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.leadingIcon {
+  margin-left: 12px;
+  --icon-size: 24px;
+}
