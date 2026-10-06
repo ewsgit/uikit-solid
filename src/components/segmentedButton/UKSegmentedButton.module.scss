@@ -1,5 +1,10 @@
 .root {
   display: inline-flex;
+  // never stretch to fill a flex parent, in either direction
+  flex: 0 0 auto;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
   flex-direction: row;
   align-items: stretch;
   height: 40px;
