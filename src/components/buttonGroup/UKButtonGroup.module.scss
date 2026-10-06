@@ -9,12 +9,14 @@
       height: 32px;
 
       & > button:not([disabled]) {
-        &:not(:last-child):not(:active) {
+        // a button followed by a disabled one keeps its own right corners
+        &:not(:last-child):not(:active):not(:has(+ [disabled])) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
         }
 
-        &:not(:first-child):not(:active) {
+        // a button following a disabled one keeps its own left corners
+        &:not(:first-child):not(:active):not([disabled] + button) {
           border-top-left-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-left-radius: var(--uk-sys-shape-corner-small) !important;
         }
@@ -26,12 +28,14 @@
       height: 40px;
 
       & > button:not([disabled]) {
-        &:not(:last-child):not(:active) {
+        // a button followed by a disabled one keeps its own right corners
+        &:not(:last-child):not(:active):not(:has(+ [disabled])) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
         }
 
-        &:not(:first-child):not(:active) {
+        // a button following a disabled one keeps its own left corners
+        &:not(:first-child):not(:active):not([disabled] + button) {
           border-top-left-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-left-radius: var(--uk-sys-shape-corner-small) !important;
         }
@@ -43,12 +47,14 @@
       height: 56px;
 
       & > button:not([disabled]) {
-        &:not(:last-child):not(:active) {
+        // a button followed by a disabled one keeps its own right corners
+        &:not(:last-child):not(:active):not(:has(+ [disabled])) {
           border-top-right-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-small) !important;
         }
 
-        &:not(:first-child):not(:active) {
+        // a button following a disabled one keeps its own left corners
+        &:not(:first-child):not(:active):not([disabled] + button) {
           border-top-left-radius: var(--uk-sys-shape-corner-small) !important;
           border-bottom-left-radius: var(--uk-sys-shape-corner-small) !important;
         }
@@ -60,12 +66,14 @@
       height: 96px;
 
       & > button:not([disabled]) {
-        &:not(:last-child):not(:active) {
+        // a button followed by a disabled one keeps its own right corners
+        &:not(:last-child):not(:active):not(:has(+ [disabled])) {
           border-top-right-radius: var(--uk-sys-shape-corner-large) !important;
           border-bottom-right-radius: var(--uk-sys-shape-corner-large) !important;
         }
 
-        &:not(:first-child):not(:active) {
+        // a button following a disabled one keeps its own left corners
+        &:not(:first-child):not(:active):not([disabled] + button) {
           border-top-left-radius: var(--uk-sys-shape-corner-large) !important;
           border-bottom-left-radius: var(--uk-sys-shape-corner-large) !important;
         }
@@ -77,12 +85,14 @@
       height: 136px;
 
       & > button:not([disabled]) {
-        &:not(:last-child):not(:active) {
+        // a button followed by a disabled one keeps its own right corners
+        &:not(:last-child):not(:active):not(:has(+ [disabled])) {
           border-top-right-radius: 20px !important;
           border-bottom-right-radius: 20px !important;
         }
 
-        &:not(:first-child):not(:active) {
+        // a button following a disabled one keeps its own left corners
+        &:not(:first-child):not(:active):not([disabled] + button) {
           border-top-left-radius: 20px !important;
           border-bottom-left-radius: 20px !important;
         }
