@@ -8,14 +8,57 @@
   &[data-sidebar-mode-mobile-mode="true"] {
     display: flex;
     flex-direction: column;
-
     .component {
+      // the opened list hangs from the bottom of this bar, over the page
+      position: relative;
+      z-index: 20;
       height: max-content;
       max-width: 100%;
       border-left: none;
       border-right: none;
+      flex-shrink: 0;
+    }
+
+    // the page takes what the bar leaves
+    .page {
+      flex: 1;
+      min-height: 0;
+      height: auto;
     }
   }
+}
+
+// the opened list of a collapsed bar lies over the top of the page rather than pushing it down
+.drawer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  // a long list of pages scrolls inside the drawer instead of running off the screen
+  max-height: calc(100dvh - 8rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.5rem 0.75rem 1rem;
+  box-sizing: border-box;
+  background-color: rgb(var(--uk-sys-color-surface-container-low));
+  border-bottom: 1px solid rgb(var(--uk-sys-color-outline-variant));
+  box-shadow: 0 0.5rem 0.75rem rgb(var(--uk-sys-color-shadow), 0.25);
+  animation: drawer-in var(--uk-sys-motion-duration-250) var(--uk-sys-motion-easing-emphasized-decelerate);
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+// a wide window's bar: no box of its own, its items are the bar's
+.items {
+  display: contents;
 }
 
 .mobileToggleButton {
@@ -28,7 +71,6 @@
   }
 
   &.isMobileToggled {
-    margin-bottom: 1rem;
     > div {
       rotate: 90deg;
     }

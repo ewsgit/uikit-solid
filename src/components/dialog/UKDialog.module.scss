@@ -19,6 +19,9 @@
     gap: 0.5rem;
     position: relative;
     max-height: calc(100% - 1rem);
+    // a keyboard or browser bar can shrink the viewport; never let the card outgrow it
+    max-height: min(calc(100% - 1rem), calc(100dvh - 1rem));
+    overscroll-behavior: contain;
     overflow-y: auto;
     animation: fadeCard 0.125s ease-out forwards;
   }

@@ -43,9 +43,11 @@ const UKSideBar: Component<
     containerClassName?: string;
     className?: string;
     darwinAdditionalTopMargin?: boolean;
+    /** The window width, in px, at or below which the bar collapses into a toggled list above the page. Defaults to 768. */
+    mobileBreakpoint?: number;
   }>
 > = (props) => {
-  const isMobile = useIsMobile();
+  const isMobile = useIsMobile(props.mobileBreakpoint);
   const [ isMobileToggled, setIsMobileToggled ] = createSignal<boolean>(false);
 
   return (
@@ -62,12 +64,18 @@ const UKSideBar: Component<
           />
         )}
         <Show when={!isMobile() || isMobileToggled()}>
+          <div class={isMobile() ? styles.drawer : styles.items}>
           <For each={props.items.filter((i) => i !== undefined)}>
             {(item, index) => {
               switch (item.type) {
                 case "button":
                   return (
-                    <button type="button" class={styles.button} data-selected={(item as ButtonItem).active} onClick={(item as ButtonItem).onClick}>
+                    <button type="button" class={styles.button} data-selected={(item as ButtonItem).active} onClick={() => {
+                        (item as ButtonItem).onClick();
+                        // on a phone the drawer is in the way of the page it just opened
+                        setIsMobileToggled(false);
+                      }}
+                    >
                       {(item as ButtonItem).icon &&
                         ((item as ButtonItem).icon.type === "image" ? (
                           <img src={(item as ButtonItem).icon.value} alt={""} />
@@ -91,6 +99,7 @@ const UKSideBar: Component<
               }
             }}
           </For>
+          </div>
         </Show>
       </div>
       <div class={styles.page}>{props.children}</div>
