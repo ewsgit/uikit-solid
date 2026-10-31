@@ -13,6 +13,10 @@ export interface UKSegmentedButtonItem {
   accessibleLabel?: string;
 }
 
+/**
+ * @deprecated M3 Expressive replaces segmented buttons with connected button groups.
+ * Use `UKButtonGroup connected` with `UKButton`s instead (selected: `filled`, unselected: `tonal`).
+ */
 const UKSegmentedButton: Component<{
   items: UKSegmentedButtonItem[];
   selectedId: Accessor<string>;
